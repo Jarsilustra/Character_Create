@@ -259,25 +259,30 @@ document.getElementById("guardar").addEventListener("click", () => {
     },
   };
 
-  fetch(
-    "https://script.google.com/macros/s/AKfycbwF2Vo4wfof4-nTvx937iMWLgfjDwxCTdxWWKGK7CJPAmNuqg3oC_3kQZXWz4GtNgGp/exec",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // <-- CORREGIDO
-      },
-      body: JSON.stringify(data),
-    }
-  )
-    .then((response) => response.json())
-    .then(() => {
-      alert("Datos guardados con éxito");
-    })
-    .catch((error) => {
-      console.error("Error al guardar en Google Sheets:", error);
-      alert("Hubo un error al guardar los datos.");
-    });
+  fetch("https://script.google.com/macros/s/AKfycbw3aCC00LBZ7jb0gd6ax8MIyZpxWAAx_8F_aAz60eokTwwhTZ8wbw4D9h1VVrGuewBs/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error("Error en la respuesta del servidor");
+  }
+  return response.json();
+})
+.then(result => {
+  if (result.status === "success") {
+    alert("Datos guardados con éxito");
+  } else {
+    alert("Hubo un problema al guardar los datos.");
+  }
+})
+.catch(error => {
+  alert("Error al conectar con el servidor: " + error.message);
 });
+
 
 // Botón Borrar - Reiniciar todo
 document.getElementById("borrar").addEventListener("click", () => {
@@ -301,3 +306,4 @@ document.getElementById("borrar").addEventListener("click", () => {
 
 // Inicializar
 calcularBase();
+});
