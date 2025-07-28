@@ -1,118 +1,28 @@
 // Puntos totales disponibles
 const puntosTotales = 20;
 
-// Configuración de razas y clases
+// Configuración de razas
 const razas = {
-  Humano: {
-    fuerza: 5,
-    magia: 5,
-    velocidad: 5,
-    defensa: 5,
-    resistencia: 5,
-    destreza: 5,
-  },
-  Elfo: {
-    fuerza: 3,
-    magia: 7,
-    velocidad: 6,
-    defensa: 4,
-    resistencia: 5,
-    destreza: 7,
-  },
-  Enano: {
-    fuerza: 7,
-    magia: 3,
-    velocidad: 4,
-    defensa: 8,
-    resistencia: 6,
-    destreza: 4,
-  },
-  Orco: {
-    fuerza: 8,
-    magia: 2,
-    velocidad: 4,
-    defensa: 7,
-    resistencia: 6,
-    destreza: 3,
-  },
-  Dragónido: {
-    fuerza: 7,
-    magia: 6,
-    velocidad: 5,
-    defensa: 7,
-    resistencia: 8,
-    destreza: 5,
-  },
-  Hada: {
-    fuerza: 2,
-    magia: 8,
-    velocidad: 8,
-    defensa: 3,
-    resistencia: 4,
-    destreza: 8,
-  },
+  Humano: { fuerza: 5, magia: 5, velocidad: 5, defensa: 5, resistencia: 5, destreza: 5 },
+  Elfo: { fuerza: 3, magia: 7, velocidad: 6, defensa: 4, resistencia: 5, destreza: 7 },
+  Enano: { fuerza: 7, magia: 3, velocidad: 4, defensa: 8, resistencia: 6, destreza: 4 },
+  Orco: { fuerza: 8, magia: 2, velocidad: 4, defensa: 7, resistencia: 6, destreza: 3 },
+  Dragónido: { fuerza: 7, magia: 6, velocidad: 5, defensa: 7, resistencia: 8, destreza: 5 },
+  Hada: { fuerza: 2, magia: 8, velocidad: 8, defensa: 3, resistencia: 4, destreza: 8 },
 };
 
+// Configuración de clases
 const clases = {
-  Guerrero: {
-    fuerza: 3,
-    magia: 0,
-    velocidad: 1,
-    defensa: 2,
-    resistencia: 2,
-    destreza: 1,
-  },
-  Mago: {
-    fuerza: 0,
-    magia: 4,
-    velocidad: 1,
-    defensa: 1,
-    resistencia: 1,
-    destreza: 2,
-  },
-  Pícaro: {
-    fuerza: 1,
-    magia: 1,
-    velocidad: 3,
-    defensa: 1,
-    resistencia: 2,
-    destreza: 3,
-  },
-  Paladín: {
-    fuerza: 2,
-    magia: 2,
-    velocidad: 1,
-    defensa: 3,
-    resistencia: 3,
-    destreza: 1,
-  },
-  Arquero: {
-    fuerza: 2,
-    magia: 1,
-    velocidad: 3,
-    defensa: 1,
-    resistencia: 2,
-    destreza: 3,
-  },
-  Nigromante: {
-    fuerza: 0,
-    magia: 5,
-    velocidad: 1,
-    defensa: 1,
-    resistencia: 2,
-    destreza: 2,
-  },
+  Guerrero: { fuerza: 3, magia: 0, velocidad: 1, defensa: 2, resistencia: 2, destreza: 1 },
+  Mago: { fuerza: 0, magia: 4, velocidad: 1, defensa: 1, resistencia: 1, destreza: 2 },
+  Pícaro: { fuerza: 1, magia: 1, velocidad: 3, defensa: 1, resistencia: 2, destreza: 3 },
+  Paladín: { fuerza: 2, magia: 2, velocidad: 1, defensa: 3, resistencia: 3, destreza: 1 },
+  Arquero: { fuerza: 2, magia: 1, velocidad: 3, defensa: 1, resistencia: 2, destreza: 3 },
+  Nigromante: { fuerza: 0, magia: 5, velocidad: 1, defensa: 1, resistencia: 2, destreza: 2 },
 };
 
 // Atributos base
-const atributosBase = [
-  "fuerza",
-  "magia",
-  "velocidad",
-  "defensa",
-  "resistencia",
-  "destreza",
-];
+const atributosBase = ["fuerza", "magia", "velocidad", "defensa", "resistencia", "destreza"];
 
 // Elementos del DOM
 const razaSelect = document.getElementById("raza");
@@ -123,7 +33,7 @@ const cardRaza = document.getElementById("card-raza");
 const cardClase = document.getElementById("card-clase");
 const cardStats = document.getElementById("card-stats");
 
-// Campos de descripción
+// Campos para nombre y descripción
 const nombreInput = document.getElementById("nombre");
 const fisicoInput = document.getElementById("fisico");
 const personalidadInput = document.getElementById("personalidad");
@@ -139,15 +49,14 @@ const cardHistoria = document.getElementById("card-historia");
 let puntosRestantes = puntosTotales;
 let valoresActuales = {};
 
-// Combinar valores base
+// Función: calcula valores base según raza y clase
 function calcularBase() {
   const raza = razaSelect.value;
   const clase = claseSelect.value;
 
   valoresActuales = {};
   atributosBase.forEach((attr) => {
-    valoresActuales[attr] =
-      (razas[raza][attr] || 0) + (clases[clase][attr] || 0);
+    valoresActuales[attr] = (razas[raza][attr] || 0) + (clases[clase][attr] || 0);
   });
 
   puntosRestantes = puntosTotales;
@@ -155,7 +64,7 @@ function calcularBase() {
   actualizarPreview();
 }
 
-// Renderizar atributos
+// Renderiza atributos dinámicos
 function renderAtributos() {
   atributosDiv.innerHTML = "";
 
@@ -163,9 +72,7 @@ function renderAtributos() {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = `
       <span>${attr.charAt(0).toUpperCase() + attr.slice(1)}:</span>
-      <input type="number" min="${valoresActuales[attr]}" value="${
-      valoresActuales[attr]
-    }" data-attr="${attr}" id="${attr}">
+      <input type="number" id="${attr}" min="${valoresActuales[attr]}" value="${valoresActuales[attr]}" data-attr="${attr}">
     `;
     atributosDiv.appendChild(wrapper);
   });
@@ -177,25 +84,21 @@ function renderAtributos() {
   });
 }
 
-// Manejar cambio de atributos
+// Maneja cambios en los atributos
 function manejarCambio(e) {
   const attr = e.target.dataset.attr;
   const nuevoValor = parseInt(e.target.value);
-  const base =
-    (razas[razaSelect.value][attr] || 0) +
-    (clases[claseSelect.value][attr] || 0);
 
   let totalGastado = 0;
   document.querySelectorAll("input[type='number']").forEach((input) => {
-    totalGastado +=
-      parseInt(input.value) -
-      ((razas[razaSelect.value][input.dataset.attr] || 0) +
-        (clases[claseSelect.value][input.dataset.attr] || 0));
+    const base =
+      (razas[razaSelect.value][input.dataset.attr] || 0) +
+      (clases[claseSelect.value][input.dataset.attr] || 0);
+    totalGastado += parseInt(input.value) - base;
   });
 
   if (totalGastado > puntosTotales) {
-    e.target.value =
-      base + (puntosTotales - (totalGastado - (nuevoValor - base)));
+    e.target.value = nuevoValor - (totalGastado - puntosTotales);
     totalGastado = puntosTotales;
   }
 
@@ -204,7 +107,7 @@ function manejarCambio(e) {
   actualizarPreview();
 }
 
-// Actualizar vista previa
+// Actualiza vista previa
 function actualizarPreview() {
   cardRaza.textContent = `Raza: ${razaSelect.value}`;
   cardClase.textContent = `Clase: ${claseSelect.value}`;
@@ -218,30 +121,30 @@ function actualizarPreview() {
 }
 
 // Eventos para descripciones
-nombreInput.addEventListener(
-  "input",
-  () => (cardName.textContent = nombreInput.value || "Personaje")
-);
-fisicoInput.addEventListener(
-  "input",
-  () => (cardFisico.textContent = fisicoInput.value || "")
-);
-personalidadInput.addEventListener(
-  "input",
-  () => (cardPersonalidad.textContent = personalidadInput.value || "")
-);
-historiaInput.addEventListener(
-  "input",
-  () => (cardHistoria.textContent = historiaInput.value || "")
-);
+nombreInput.addEventListener("input", () => {
+  cardName.textContent = nombreInput.value || "Personaje";
+});
+fisicoInput.addEventListener("input", () => {
+  cardFisico.textContent = fisicoInput.value || "";
+});
+personalidadInput.addEventListener("input", () => {
+  cardPersonalidad.textContent = personalidadInput.value || "";
+});
+historiaInput.addEventListener("input", () => {
+  cardHistoria.textContent = historiaInput.value || "";
+});
 
 // Eventos para raza y clase
 razaSelect.addEventListener("change", calcularBase);
 claseSelect.addEventListener("change", calcularBase);
 
-// Guardar en Google Sheets
-// Guardar en Google Sheets
+// Guardar datos en Google Sheets
 document.getElementById("guardar").addEventListener("click", () => {
+  if (!nombreInput.value || !fisicoInput.value || !personalidadInput.value || !historiaInput.value) {
+    alert("Por favor completa todos los campos antes de guardar.");
+    return;
+  }
+
   const data = {
     nombre: nombreInput.value,
     raza: razaSelect.value,
@@ -251,59 +154,57 @@ document.getElementById("guardar").addEventListener("click", () => {
     historia: historiaInput.value,
     atributos: {
       fuerza: document.getElementById("fuerza").value,
-      defensa: document.getElementById("defensa").value,
       magia: document.getElementById("magia").value,
-      resistencia: document.getElementById("resistencia").value,
       velocidad: document.getElementById("velocidad").value,
+      defensa: document.getElementById("defensa").value,
+      resistencia: document.getElementById("resistencia").value,
       destreza: document.getElementById("destreza").value,
-    },
+    }
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbwUjw3uV4_2jcQXFDIIuC3wlhy5NZO-oIFIC7y-CEFoUhfEOPoZZPoFVLrsDYJKOMuv/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(data)
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error("Error en la respuesta del servidor");
-  }
-  return response.json();
-})
-.then(result => {
-  if (result.status === "success") {
-    alert("Datos guardados con éxito");
-  } else {
-    alert("Hubo un problema al guardar los datos.");
-  }
-})
-.catch(error => {
-  alert("Error al conectar con el servidor: " + error.message);
+  fetch("TU_URL_DE_GOOGLE_SCRIPT", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then(res => res.text())
+    .then(response => {
+      if (response === "OK") {
+        alert("¡Datos guardados correctamente en Google Sheets!");
+      } else {
+        alert("Hubo un problema: " + response);
+      }
+    })
+    .catch(err => alert("Error al enviar los datos: " + err));
 });
 
-
-// Botón Borrar - Reiniciar todo
+// Botón Borrar - reinicia todo
 document.getElementById("borrar").addEventListener("click", () => {
-  // Limpiar campos de texto
-  nombreInput.value = "";
-  fisicoInput.value = "";
-  personalidadInput.value = "";
-  historiaInput.value = "";
+  if (confirm("¿Seguro que quieres borrar todos los datos?")) {
+    // Resetear campos de texto
+    nombreInput.value = "";
+    fisicoInput.value = "";
+    personalidadInput.value = "";
+    historiaInput.value = "";
 
-  // Reset selects
-  razaSelect.value = "Humano";
-  claseSelect.value = "Guerrero";
+    // Resetear selects
+    razaSelect.value = "Humano";
+    claseSelect.value = "Guerrero";
 
-  // Recalcular base y reset vista previa
-  calcularBase();
-  cardName.textContent = "Personaje";
-  cardFisico.textContent = "";
-  cardPersonalidad.textContent = "";
-  cardHistoria.textContent = "";
+    // Recalcular atributos base
+    calcularBase();
+
+    // Resetear vista previa
+    cardName.textContent = "Personaje";
+    cardFisico.textContent = "";
+    cardPersonalidad.textContent = "";
+    cardHistoria.textContent = "";
+
+    alert("Formulario reiniciado.");
+  }
 });
 
 // Inicializar
 calcularBase();
-});
