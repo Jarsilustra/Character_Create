@@ -259,7 +259,7 @@ document.getElementById("guardar").addEventListener("click", () => {
     },
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbw3aCC00LBZ7jb0gd6ax8MIyZpxWAAx_8F_aAz60eokTwwhTZ8wbw4D9h1VVrGuewBs/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzqzbDsg0bA4rlOJJ8WSuBVL2UzWzVXViHZ7FDSonGEXYV_Pva1CrkzcF7rvQubGjDn/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
