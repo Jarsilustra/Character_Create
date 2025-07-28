@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Estilos Generales ===== */
+body {
+  background-image: url("Imagenes/fondo_1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff9800;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 2.5em;
+}
+
+h2 {
+  color: #ff9800;
+  text-align: center;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 2em;
+}
+
+h3 {
+  color: #ff9800;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.preview p {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.stats p {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+#atributos {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+label {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  color: #fff;
+}
+
+#card-stats {
+  font-family: "Quicksand", sans-serif;
+  list-style: none;
+  padding: 0;
+}
+
+#card-raza,
+#card-clase {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* ===== Contenedor Principal ===== */
+.card-creator {
+  background: #2e2e4f;
+  padding: 20px;
+  margin-top: 10px;
+  border: 2px solid #ff9800;
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Layout de columnas */
+.main-layout {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Columna izquierda y derecha */
+.left-column {
+  flex: 1;
+}
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Nombre del Personaje ===== */
+.nombre-personaje {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.nombre-personaje label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.nombre-personaje input {
+  width: 80%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  text-align: center;
+}
+
+/* ===== Descripción en Grid (2 columnas) ===== */
+.descripcion-personaje {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  text-align: center;
+}
+
+.descripcion-personaje label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.descripcion-personaje input {
+  width: 90%;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ===== Selectores ===== */
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* ===== Atributos ===== */
+.stats {
+  background: #3b3b5c;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.atributos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 10px;
+}
+.atributos-grid div {
+  background: #444466;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+}
+.atributos-grid input[type="number"] {
+  width: 50px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  padding: 3px;
+}
+
+/* ===== Vista Previa ===== */
+.preview {
+  background: #3b3b5c;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.card {
+  border: 2px solid #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ===== Botón Guardar ===== */
+button {
+  font-family: "Cinzel Decorative", cursive;
+  width: 50%;
+  padding: 10px;
+  background: #ff9800;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background: #e68900;
+}
+
+#borrar {
+  font-family: "Cinzel Decorative", cursive;
+  width: 50%;
+  padding: 10px;
+  background: #ff4d4d;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#borrar:hover {
+  background: #e63e3e;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.button-group button {
+  width: 48%; /* Para que ambos ocupen la misma fila */
+}
+
+/* ===== Footer ===== */
+footer {  
+  background-color: #2e2e4f;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.8em;
+  border-top: 2px solid #ff9800;
+  width: 75%;
+  margin-top: 20px;
+}
+
+
+/* ===== Media Queries ===== */
+
+/* 1) Pantallas pequeñas - móviles (350px a 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .descripcion-personaje {
+    grid-template-columns: 1fr; /* Pasa a una columna */
+  }
+  .atributos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+  .nombre-personaje input {
+    width: 100%;
+  }
+}
+
+/* 2) Tablets pequeñas y medianas (481px a 768px) */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .descripcion-personaje {
+    grid-template-columns: repeat(2, 1fr); /* Mantén 2 columnas */
+  }
+  .atributos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 3) Tablets grandes y pantallas medianas (769px a 1200px) */
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 2em;
+  }
+  .card-creator {
+    max-width: 90%;
+  }
+}
+
+/* 4) Pantallas grandes (1201px a 1920px) */
+@media (min-width: 1201px) {
+  .card-creator {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  .button-group button {
+    width: 100%;
+  }
+}

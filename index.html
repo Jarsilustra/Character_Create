@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creador de Personajes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="card-creator">
+      <h1>CREADOR DE PERSONAJES</h1>
+
+      <!-- Nombre -->
+      <div class="nombre-personaje">
+        <label for="nombre">Nombre del personaje:</label>
+        <input
+          type="text"
+          id="nombre"
+          placeholder="Ejemplo: Darian Throne"
+          maxlength="20"
+        />
+      </div>
+
+      <!-- Descripciones -->
+      <div class="descripcion-personaje">
+        <label for="fisico">Descripción física:</label>
+        <input
+          type="text"
+          id="fisico"
+          maxlength="200"
+          placeholder="Ej: Alto, alas rojas..."
+        />
+
+        <label for="personalidad">Personalidad:</label>
+        <input
+          type="text"
+          id="personalidad"
+          maxlength="200"
+          placeholder="Ej: Valiente, curioso..."
+        />
+
+        <label for="historia">Historia personal:</label>
+        <input
+          type="text"
+          id="historia"
+          maxlength="200"
+          placeholder="Ej: Criado en las montañas..."
+        />
+      </div>
+
+      <!-- Layout principal -->
+      <div class="main-layout">
+        <!-- Columna izquierda -->
+        <div class="left-column">
+          <!-- Selectores -->
+          <div class="selectors">
+            <label for="raza">Raza:</label>
+            <select id="raza">
+              <option>Humano</option>
+              <option>Elfo</option>
+              <option>Enano</option>
+              <option>Orco</option>
+              <option>Dragónido</option>
+              <option>Hada</option>
+            </select>
+
+            <label for="clase">Clase:</label>
+            <select id="clase">
+              <option>Guerrero</option>
+              <option>Mago</option>
+              <option>Pícaro</option>
+              <option>Paladín</option>
+              <option>Arquero</option>
+              <option>Nigromante</option>
+            </select>
+          </div>
+
+          <!-- Atributos -->
+          <div class="stats">
+            <h2>ATRIBUTOS</h2>
+            <br />
+            <div id="atributos" class="atributos-grid"></div>
+            <br />
+            <p>
+              <b>Puntos restantes: <span id="puntosRestantes">20</span></b>
+            </p>
+            <br />
+            <p>
+              "Recuerda que tienes <b>20 puntos</b> extra para asignar
+              manualmente en tu personaje."
+            </p>
+          </div>
+        </div>
+
+        <!-- Columna derecha: vista previa -->
+        <div class="right-column">
+          <div class="preview">
+            <h2>DATOS PERSONAJE</h2>
+            <br />
+            <div class="card">
+              <h3 id="card-name">Personaje</h3>
+              <p id="card-raza">Raza: Humano</p>
+              <p id="card-clase">Clase: Guerrero</p>
+              <p id="card-fisico"></p>
+              <p id="card-personalidad"></p>
+              <p id="card-historia"></p>
+              <ul id="card-stats"></ul>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button id="guardar">Guardar Carta</button>
+            <button id="borrar">Borrar Todo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<footer>
+  <p>&copy; 2025 Jarsilustra. Todos los derechos reservados.</p>
+</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
