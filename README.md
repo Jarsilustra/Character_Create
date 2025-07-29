@@ -3,6 +3,9 @@
 Este proyecto es una aplicación web interactiva diseñada para la creación y personalización de personajes en entornos de fantasía. Permite a los usuarios definir características 
 como nombre, raza, clase, descripción física, personalidad e historia personal, además de asignar puntos a distintos atributos para construir perfiles únicos.
 
+Puedes ver la versión actual del proyecto aquí:  
+👉 [**Ver Demo en GitHub Pages**](https://jarsilustra.github.io/Character_Create/)
+
 ![Vista previa del proyecto](Imagenes/Foto.png)
 
 ---
